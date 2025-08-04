@@ -1,0 +1,31 @@
+etcd:
+  endpoints:
+    - etcd:2379
+
+minio:
+  address: s3.amazonaws.com
+  port: 443
+  accessKeyID: ${AWS_ACCESS_KEY_ID}
+  secretAccessKey: ${AWS_SECRET_ACCESS_KEY}
+  useSSL: true
+  bucketName: milvus-data-lovely
+
+common:
+  storage:
+    type: minio
+    bucketName: milvus-data-lovely
+    rootPath: files
+    cloudProvider: aws
+    storageBackend: s3
+    s3:
+      endpoint: s3.amazonaws.com
+      accessKeyID: ${AWS_ACCESS_KEY_ID}
+      secretAccessKey: ${AWS_SECRET_ACCESS_KEY}
+      useSSL: true
+      region: ap-northeast-1
+
+localStorage:
+  enabled: true
+
+standalone:
+  enabled: true
